@@ -1,0 +1,83 @@
+* {
+  margin:0;
+  padding:0;
+}
+body {
+	
+}
+
+
+
+#header {
+    background: transparent url(../imagenes/logo_sig.png) no-repeat 0 0;
+	height:349px;
+	margin:0;
+}
+
+.logueo {
+	height:auto;
+}
+
+
+
+body > footer{
+background: url(../imagenes/bg-bueno.jpg) repeat; text-align:center; font-family: "Prestige Elite Std"; font-size:0.9em; height:30px;
+border-top:2px solid #085878;
+width:100%;
+padding-top:10px;
+bottom: 0px;
+font-size:1.1em;
+padding-bottom: 10px;
+}
+
+.content {
+    height: 100%;
+    margin: -200px auto;
+    padding: 16px;
+    width: 1020px;
+}
+
+
+
+.bs-callout-info {
+background-color: #dff0d8;
+border-color: #3c763d;
+width: 400px;
+}
+.bs-callout {
+margin: 20px 0;
+padding: 20px;
+border-left: 3px solid #3c763d;
+}
+.bs-callout-info h4 {
+color: #3c763d;
+}
+.bs-callout h4 {
+margin-top: 0;
+margin-bottom: 5px;
+}
+
+.bs-callout p:last-child {
+margin-bottom: 0;
+}
+
+.letraChica {
+	font-size:12px;
+}
+
+.izq {
+	width:19%;
+	padding:20px;
+	float:left;
+	height:auto;
+}
+
+.der {
+	width:79%;
+	padding:20px;
+	float:right;
+	height:auto;
+}
+
+
+

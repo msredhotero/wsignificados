@@ -1,0 +1,85 @@
+.simpleSlide-slide div{
+	width: 557px;
+	height: 282px;
+	position: relative;
+}
+
+.simpleSlide-window {
+	border: 1px solid #FCF4F4;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.slideshow {
+	position: relative;
+	overflow: auto;
+}
+
+.left-button {
+	background-image:url("../../imagenes/fecha-izq.png");
+	right:75px;
+}
+
+.right-button {
+	background-image:url("../../imagenes/fecha-derecha.png");
+	right: 4px;
+}
+
+.left-button, .right-button {
+	cursor:pointer;
+	height:72px;
+	position:absolute;
+	width:80px;
+	display: none;
+	z-index: 9999;
+	top:50%;
+	margin-top: -36px;
+}
+
+.slide_headline {
+	color:#FCF4F4;
+	font-size:46px;
+	font-weight:bold;
+	letter-spacing:-0.04em;
+	top: 20px;
+	left: 20px;
+	position: absolute;
+}
+
+.body_headline {
+	color:#FCF4F4;
+	font-size:46px;
+	font-weight:bold;
+	letter-spacing:-0.04em;
+}
+
+.slide_number {
+	color:#FCF4F4;
+	font-size:180px;
+	font-weight:bold;
+	right:400px;
+	top:100px;
+	position:absolute;
+	text-align: right;
+}
+	
+.slide_copy {
+	color:#FCF4F4;
+	left:159px;
+	top:111px;
+	position:absolute;
+	width:375px;
+	line-height: 22px;
+}
+.simpleSlideStatus-tray {
+	margin: 5px auto;
+}
+.sidebar_white_header {
+	color: #000;
+	background-color: #FCF4F4;
+	margin-top: 70px;
+	vertical-align: text-top;
+	height:13px;
+	padding-left: 10px;
+}

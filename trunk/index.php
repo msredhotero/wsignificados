@@ -72,7 +72,47 @@ $serviciosUsuarios = new ServiciosUsuarios();
         <!-- Latest compiled and minified JavaScript -->
         <script src="bootstrap/js/bootstrap.min.js"></script>
         
-      
+      <script type="text/javascript">
+		$( document ).ready(function() {
+			$('#icoCate').click(function() {
+				$('#icoCate').hide();
+				$('.todoMenu').show(100, function() {
+					$('#menuCate').animate({'margin-left':'0px'}, {
+													duration: 800,
+													specialEasing: {
+													width: "linear",
+													height: "easeOutBounce"
+													}});
+				});
+			});
+			
+			$('.ocultar').click(function(){
+				$('#icoCate').show(100, function() {
+					$('#menuCate').animate({'margin-left':'-235px'}, {
+													duration: 800,
+													specialEasing: {
+													width: "linear",
+													height: "easeOutBounce"
+													}});
+				});
+				$('.todoMenu').hide();
+			});
+			
+			
+		
+
+		});
+	</script>
+   <link href="css/perfect-scrollbar.css" rel="stylesheet">
+      <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+      <script src="js/jquery.mousewheel.js"></script>
+      <script src="js/perfect-scrollbar.js"></script>
+      <script>
+      jQuery(document).ready(function ($) {
+        "use strict";
+        $('#menuCate').perfectScrollbar();
+      });
+    </script>
         
         
 </head>
@@ -114,6 +154,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
     	</div>
     </div><!-- fin del header-->
 	
+    <div id="menuCate">
+    	<div class="todoMenu">
+            <div id="mobile-header">
+                Menu
+                <p>Usuario: <span style="color: #333; font-weight:900;">AdminMarcos</span></p>
+                <p class="ocultar" style="color: #146CAD; font-weight:bold; cursor:pointer; font-family:'Courier New', Courier, monospace; height:20px;">(Ocultar)</p>
+            </div>
+    
+            <nav class="nav">
+                <ul>
+                    <li><a href="categorias/sueños.php">Sueños</a></li>
+                    <li><a href="categorias/apellidos.php">Apellidos</a></li>
+                    <li><a href="categorias/objetos.php">Objetos</a></li>
+                    <li><a href="categorias/apellidos.php">otro</a></li>
+                    <li><a href="categorias/apellidos.php">otro</a></li>
+                    <li><a href="salir/">Salir</a></li>
+                </ul>
+            </nav>
+        	
+            <!--<div id="infoMenu">
+                <p>Información del Menu</p>
+            </div>
+        
+            <div id="infoDescrMenu">
+                <p>La descripción breve de cada item sera detallada aqui, deslizando el mouse por encima de cada menu.</p>
+            </div>-->
+    	</div>
+    </div>
+    <div id="icoCate">
+    	
+    </div>
+    
     <div class="content">
     	<div class="panel panel-significados">
           <div class="panel-heading">
@@ -138,7 +210,7 @@ box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.19);">
             <div class="row" style="padding:10px;">
             	<h4 style="text-shadow: -1px -1px white;">Recientemente agregados a Significados</h4>
             	<div class="col-md-4">
-                	<ul>
+                	<ul style="list-style-image:url(imagenes/list-check.fw.png);">
                     	<li>Marcos</li>
                         <li>Alex</li>
                         <li>Atun</li>
@@ -153,7 +225,7 @@ box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.19);">
                 </div>
                 
                 <div class="col-md-4">
-                	<ul>
+                	<ul style="list-style-image:url(imagenes/list-check.fw.png);">
                     	<li>Marcos</li>
                         <li>Alex</li>
                         <li>Atun</li>
@@ -168,7 +240,7 @@ box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.19);">
                 </div>
                 
                 <div class="col-md-4">
-                	<ul>
+                	<ul style="list-style-image:url(imagenes/list-check.fw.png);">
                     	<li>Marcos</li>
                         <li>Alex</li>
                         <li>Atun</li>
@@ -185,7 +257,7 @@ box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.19);">
           </div>
           </div>
         </div>
-    </div>
+    </div><!--fin del content-->
 	
 
 </div><!-- fin del div del degradado-->

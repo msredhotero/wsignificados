@@ -2,8 +2,16 @@
 
 
 require 'includes/funcionesUsuarios.php';
+require 'includes/funcionesSignificados.php';
 
 $serviciosUsuarios = new ServiciosUsuarios();
+$serviciosSignificados = new ServiciosSignificados();
+
+$resCategoriaMenu = $serviciosSignificados->traerCategoria();
+
+$resPalabraUno = $serviciosSignificados->traerPalabraDeUno();
+$resPalabraDos = $serviciosSignificados->traerPalabraDeDos();
+$resPalabraTres = $serviciosSignificados->traerPalabraDeTres();
 
 
 
@@ -164,11 +172,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
     
             <nav class="nav">
                 <ul>
-                    <li><a href="categorias/sueños.php">Sueños</a></li>
-                    <li><a href="categorias/apellidos.php">Apellidos</a></li>
-                    <li><a href="categorias/objetos.php">Objetos</a></li>
-                    <li><a href="categorias/apellidos.php">otro</a></li>
-                    <li><a href="categorias/apellidos.php">otro</a></li>
+                    <?php while ($row = mysql_fetch_array($resCategoria)) { ?> 
+                    <li><a href="categorias/categorias.php?id=<?php echo $row['idcategoria']; ?>"><?php echo utf8_encode($row['categoria']); ?></a></li>
+					<?php } ?> 
                     <li><a href="salir/">Salir</a></li>
                 </ul>
             </nav>
@@ -211,46 +217,25 @@ box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.19);">
             	<h4 style="text-shadow: -1px -1px white;">Recientemente agregados a Significados</h4>
             	<div class="col-md-4">
                 	<ul style="list-style-image:url(imagenes/list-check.fw.png);">
-                    	<li>Marcos</li>
-                        <li>Alex</li>
-                        <li>Atun</li>
-                        <li>Anteojos</li>
-                        <li>Lumbre</li>
-                        <li>Perro</li>
-                        <li>Costumbre</li>
-                        <li>Villa</li>
-                        <li>Lagos</li>
-                        <li>Monos</li>
+                    	<?php while ($row1 = mysql_fetch_array($resPalabraUno)) { ?> 
+                        <li><a href="significados.php?id=<?php echo $row1['idpalabra']; ?>"><?php echo utf8_encode($row1['palabra']); ?></a></li>
+                        <?php } ?> 
                     </ul>
                 </div>
                 
                 <div class="col-md-4">
                 	<ul style="list-style-image:url(imagenes/list-check.fw.png);">
-                    	<li>Marcos</li>
-                        <li>Alex</li>
-                        <li>Atun</li>
-                        <li>Anteojos</li>
-                        <li>Lumbre</li>
-                        <li>Perro</li>
-                        <li>Costumbre</li>
-                        <li>Villa</li>
-                        <li>Lagos</li>
-                        <li>Monos</li>
+                    	<?php while ($row2 = mysql_fetch_array($resPalabraDos)) { ?> 
+                        <li><a href="significados.php?id=<?php echo $row2['idpalabra']; ?>"><?php echo utf8_encode($row2['palabra']); ?></a></li>
+                        <?php } ?> 
                     </ul>
                 </div>
                 
                 <div class="col-md-4">
                 	<ul style="list-style-image:url(imagenes/list-check.fw.png);">
-                    	<li>Marcos</li>
-                        <li>Alex</li>
-                        <li>Atun</li>
-                        <li>Anteojos</li>
-                        <li>Lumbre</li>
-                        <li>Perro</li>
-                        <li>Costumbre</li>
-                        <li>Villa</li>
-                        <li>Lagos</li>
-                        <li>Monos</li>
+                    	<?php while ($row3 = mysql_fetch_array($resPalabraTres)) { ?> 
+                        <li><a href="significados.php?id=<?php echo $row3['idpalabra']; ?>"><?php echo utf8_encode($row3['palabra']); ?></a></li>
+                        <?php } ?> 
                     </ul>
                 </div>
             </div>

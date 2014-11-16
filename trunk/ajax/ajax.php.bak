@@ -27,9 +27,7 @@ switch ($accion) {
 
 
 function insertarPalabra($serviciosSignificados) {
-	$refcategoria	=		$_POST['refcategoria'];
-	$palabra			=		$_POST['palabra'];
-	echo $serviciosSignificados->insertarPalabra($refcategoria, $palabra);
+	
 }
 
 function eliminarUsuario($serviciosUsuarios) {

@@ -38,11 +38,11 @@ class ServiciosUsuarios {
 
                     if ($error == '') {
                             session_start();
-                            $_SESSION['usua_se'] 	= $usuario;
-                            $_SESSION['nombre_se']	= mysql_result($resppass,0,5);
-							$_SESSION['refid_se']	= $idUsua;
-                            $_SESSION['refrol_se']	= mysql_result($resppass,0,3);
-							$_SESSION['carpeta_se']	= mysql_result($resppass,0,10);
+                            $_SESSION['usua_sign'] 	= $usuario;
+                            $_SESSION['nombre_sign']	= mysql_result($resppass,0,5);
+							$_SESSION['refid_sign']	= $idUsua;
+                            $_SESSION['refrol_sign']	= mysql_result($resppass,0,3);
+							$_SESSION['carpeta_sign']	= mysql_result($resppass,0,10);
                     }
 
         }	else {
@@ -217,12 +217,18 @@ function eliminarUsuario($idUsuario) {
     return      "";
 }
 
+
+function traerCategorias() {
+	$sql = "select * from s_categorias order by categorias";
+	$res = $this->query($sql,0);
+	return $res;	
+}
 Function query($sql,$accion) {
 		
 		
 		
 		$hostname = "localhost";
-		$database = "portalinmobiliario";
+		$database = "significados";
 		$username = "root";
 		$password = "";
 		

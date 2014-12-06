@@ -101,6 +101,18 @@ function existePalabra($palabra) {
            return 0;	
 }
 
+function traerPalabra() {
+	$sql		=		"select p.idpalabra, p.refcategoria, p.palabra, p.fechacreacion, c.categoria
+							 from s_palabras p
+							 inner join s_categorias c on p.refcategoria = c.idcategoria
+							 order by palabra";
+	$res		=		$this->query($sql,0);
+	if ($res == false) {
+		return 'Error al consultar datos';
+	} else {
+		return $res;
+	}
+}
 
 function traerPalabraDeUno() {
 	$sql		=		"select p.idpalabra, p.refcategoria, p.palabra, p.fechacreacion, c.categoria

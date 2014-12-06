@@ -22,9 +22,19 @@ switch ($accion) {
     case 'insertarPalabra':
 		insertarPalabra($serviciosSignificados);
 		break;
-    
+    case 'insertarSignificados':
+		insertarSignificados($serviciosSignificados);
+		break;
 }
 
+function insertarSignificados($serviciosSignificados) {
+	session_start();
+	$refpalabra		=		$_POST['palabra'];
+	$utilizacion	=		$_POST['utilizacion'];
+	$significado	=		$_POST['significado'];
+	$refusuario		=		$_SESSION['usua_sign'];
+	echo $serviciosSignificados->insertarSignificados($significado, $refpalabra, $utilizacion, $refusuario);
+}
 
 function insertarPalabra($serviciosSignificados) {
 	$refcategoria	=		$_POST['refcategoria'];

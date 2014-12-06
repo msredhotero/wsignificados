@@ -173,13 +173,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
     	<div class="todoMenu">
             <div id="mobile-header">
                 Menu
-                <p>Usuario: <span style="color: #333; font-weight:900;">AdminMarcos</span></p>
+                <p>Usuario: <span style="color: #333; font-weight:900;"><?php echo $_SESSION['usua_sign']; ?></span></p>
                 <p class="ocultar" style="color: #146CAD; font-weight:bold; cursor:pointer; font-family:'Courier New', Courier, monospace; height:20px;">(Ocultar)</p>
             </div>
     
             <nav class="nav">
                 <ul>
-                	<?php while ($row = mysql_fetch_array($resCategoria)) { ?> 
+                	<?php while ($row = mysql_fetch_array($resCategoriaMenu)) { ?> 
                     <li><a href="categorias/categorias.php?id=<?php echo $row['idcategoria']; ?>"><?php echo utf8_encode($row['categoria']); ?></a></li>
 					<?php } ?>   
 
@@ -261,9 +261,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
                             </div>
                         </div>
                 </div>
+                <input type="hidden" id="accion" name="accion" value="insertarSignificados"/>
                 <div class="row">
                     	<button type="button" class="btn btn-primary" id="cargar" style="margin-left:20px;">Cargar</button>
-                    </div>
+                </div>
                 </form>
 
           </div>
@@ -381,6 +382,120 @@ $(document).ready(function(){
 		 
 		 
 	 		}); //fin del dialogo para crear cliente
+			
+			
+$("#utlizacion").click(function(event) {
+		if ($("#utlizacion").val() == "") {
+			$("#utlizacion").removeClass("alert-danger");
+			$("#utlizacion").attr('value','');
+			$("#utlizacion").attr('placeholder','Ingrese la Utlización...');
+		}
+    });
+
+	$("#utlizacion").change(function(event) {
+		if ($("#utlizacion").val() == "") {
+			$("#utlizacion").removeClass("alert-danger");
+			$("#utlizacion").attr('placeholder','Ingrese la Utlización');
+		}
+	});			
+			
+
+$("#significado").click(function(event) {
+		if ($("#significado").val() == "") {
+			$("#significado").removeClass("alert-danger");
+			$("#significado").attr('value','');
+			$("#significado").attr('placeholder','Ingrese la Significado...');
+		}
+    });
+
+	$("#significado").change(function(event) {
+		if ($("#significado").val() == "") {
+			$("#significado").removeClass("alert-danger");
+			$("#significado").attr('placeholder','Ingrese la Significado');
+		}
+	});				
+			
+function validador(){
+
+			$error = "";
+//idproducto,nombre,precio_unit,precio_venta,stock,stock_min,reftipoproducto,refproveedor,codigo,codigobarra,caracteristicas
+			
+			if ($("#utlizacion").val() == "") {
+				$error = "Es obligatorio el campo utlización.";
+				$("#utlizacion").addClass("alert-danger");
+				$("#utlizacion").attr('placeholder',$error);
+			}
+			
+			if ($("#significado").val() == "") {
+				$error = "Es obligatorio el campo significado.";
+				$("#significado").addClass("alert-danger");
+				$("#significado").attr('placeholder',$error);
+			}
+			
+			
+
+
+			return $error;
+    }			
+
+//al enviar el formulario
+    $('#cargar').click(function(){
+		
+		if (validador() == "")
+        {
+			//información del formulario
+			var formData = new FormData($(".formulario")[0]);
+			var message = "";
+			//hacemos la petición ajax  
+			$.ajax({
+				url: 'ajax/ajax.php',  
+				type: 'POST',
+				// Form data
+				//datos del formulario
+				data: formData,
+				//necesario para subir archivos via ajax
+				cache: false,
+				contentType: false,
+				processData: false,
+				//mientras enviamos el archivo
+				beforeSend: function(){
+					$("#load").html('<img src="imagenes/load13.gif" width="50" height="50" />');       
+				},
+				//una vez finalizado correctamente
+				success: function(data){
+
+					if (data != '') {
+                                            $(".alert").removeClass("alert-danger");
+											$(".alert").removeClass("alert-info");
+                                            $(".alert").addClass("alert-success");
+                                            $(".alert").html('<strong>Ok!</strong> Se cargo exitosamente el <strong>Significado</strong>. ');
+											$(".alert").delay(3000).queue(function(){
+												/*aca lo que quiero hacer 
+												  después de los 2 segundos de retraso*/
+												$(this).dequeue(); //continúo con el siguiente ítem en la cola
+												
+											});
+											$("#load").html('');
+											url = "index.php";
+											$(location).attr('href',url);
+                                            
+											
+                                        } else {
+                                        	$(".alert").removeClass("alert-danger");
+                                            $(".alert").addClass("alert-danger");
+                                            $(".alert").html('<strong>Error!</strong> '+data);
+                                            $("#load").html('');
+                                        }
+				},
+				//si ha ocurrido un error
+				error: function(){
+					$(".alert").html('<strong>Error!</strong> Actualice la pagina');
+                    $("#load").html('');
+				}
+			});
+		}
+    });		
+			
 });//fin del document ready            
 </script>            
             

@@ -22,12 +22,22 @@ switch ($accion) {
     case 'insertarPalabra':
 		insertarPalabra($serviciosSignificados);
 		break;
-    
+    case 'insertarSignificados':
+		insertarSignificados($serviciosSignificados);
+		break;
 }
 
+function insertarSignificados($serviciosSignificados) {
+	$refpalabra		=		$_POST['palabra'];
+	$utilizacion	=		$_POST['utilizacion'];
+	$significado	=		$_POST['significado'];
+	echo $serviciosSignificados->insertarSignificados($significado, $refpalabra, $utilizacion, $refusuario);
+}
 
 function insertarPalabra($serviciosSignificados) {
-	
+	$refcategoria	=		$_POST['refcategoria'];
+	$palabra			=		$_POST['palabra'];
+	echo $serviciosSignificados->insertarPalabra($refcategoria, $palabra);
 }
 
 function eliminarUsuario($serviciosUsuarios) {

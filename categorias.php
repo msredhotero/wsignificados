@@ -166,7 +166,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
     	<div class="todoMenu">
             <div id="mobile-header">
                 Menu
-                <p>Usuario: <span style="color: #333; font-weight:900;"><?php echo $_SESSION['usua_sign']; ?></span></p>
+                <p>Usuario: <span style="color: #333; font-weight:900;">AdminMarcos</span></p>
                 <p class="ocultar" style="color: #146CAD; font-weight:bold; cursor:pointer; font-family:'Courier New', Courier, monospace; height:20px;">(Ocultar)</p>
             </div>
     
